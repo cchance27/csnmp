@@ -3,7 +3,6 @@ use std::fmt;
 use std::io::Write;
 use std::net::Ipv4Addr;
 
-use derivative::Derivative;
 use der_parser::ber::{
     Class, MAX_RECURSION, parse_ber_container, parse_ber_null, parse_ber_sequence_defined_g, Tag,
 };
@@ -292,11 +291,9 @@ where
 
 
 // RFC1901, section 3.
-#[derive(Clone, Derivative, Eq, Hash, PartialEq)]
-#[derivative(Debug)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Snmp2cMessage {
     pub version: i64,
-    #[derivative(Debug="ignore")]
     pub community: Vec<u8>,
     pub pdu: Snmp2cPdu,
 }
