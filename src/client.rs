@@ -9,7 +9,6 @@ use std::net::{IpAddr, SocketAddr};
 use std::sync::atomic::{AtomicI32, Ordering};
 use std::time::{Duration, Instant};
 
-use derivative::Derivative;
 use tokio::net::UdpSocket;
 #[cfg(feature = "tracing")]
 use tracing::instrument;
