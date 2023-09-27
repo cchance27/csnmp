@@ -38,12 +38,10 @@ async fn maybe_timeout<T: Future>(timeout: Option<Duration>, future: T) -> Resul
 
 
 /// A SNMP2c client.
-#[derive(Derivative)]
-#[derivative(Debug)]
+#[derive(Debug)]
 pub struct Snmp2cClient {
     low_level_client: LowLevelSnmp2cClient,
     target: SocketAddr,
-    #[derivative(Debug="ignore")]
     community: Vec<u8>,
     request_id: AtomicI32,
     timeout: Option<Duration>,
